@@ -17,57 +17,205 @@
 }
 
 * {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
-html, body { 
-    font-family: sans-serif, Tahoma, Verdana;
-    height: 100%; 
+
+html, body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    height: 100%;
 }
+
+/* ── Layout ───────────────────────────────────────────── */
 .container {
     display: flex;
     flex-direction: row;
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
 }
 
+/* ── Left: image panel ────────────────────────────────── */
 .image-panel {
+    position: relative;
+    flex: 0 0 35%;
     background-image: url('img/forest.jpg');
     background-size: cover;
     background-position: center;
-    flex: 1; 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem;
+    padding: 2rem 1rem;
 }
+
+/* dark overlay on the forest photo */
+.image-panel::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+}
+
+/* keep children above the overlay */
+.logo-overlay,
+.image-credit {
+    position: relative;
+    z-index: 1;
+}
+
+.logo-overlay {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 1rem 2rem;
+    width: 100%;
+    justify-content: center;
+}
+
+.logo-overlay img {
+    width: 60px;
+    filter: invert(1);
+}
+
+.logo-overlay h1 {
+    font-family: 'Norse', sans-serif;
+    font-weight: bold;
+    font-size: 3.5rem;
+    color: #fff;
+    letter-spacing: 0.1em;
+}
+
+.image-credit {
+    font-size: 0.75rem;
+    text-align: center;
+}
+
+.image-credit,
+.image-credit a {
+    color: rgba(255, 255, 255, 0.75);
+    text-decoration: none;
+}
+
+.image-credit a:hover {
+    text-decoration: underline;
+}
+
+/* ── Right: form panel ────────────────────────────────── */
 .form-panel {
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    background: #fff;
+    overflow-y: auto;
+}
+
+.intro-text {
+    padding: 2rem 4rem 1.5rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+.intro-text p + p {
+    margin-top: 0.5rem;
+}
+
+/* ── Form ─────────────────────────────────────────────── */
+.form-fields {
+    padding: 0 4rem 2rem;
+}
+
+fieldset {
+    border: none;
+    padding: 0;
+    margin-bottom: 1.5rem;
+}
+
+legend {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    color: #333;
 }
 
 .form-row {
     display: flex;
     flex-direction: row;
-    gap: 3rem;
-    padding: 0.5rem; 
+    gap: 2rem;
+    margin-bottom: 1.25rem;
 }
 
 .form-group {
     flex: 1;
-    display:flex;
+    display: flex;
     flex-direction: column;
+    gap: 0.35rem;
 }
 
-.logo-overlay {
-    align-self: center;       
+.form-group label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: #555;
 }
 
-.image-credit,
-.image-credit a{
+.form-group input {
+    padding: 0.5rem 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #c0c0c0;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input:focus {
+    border-color: #596d48;
+    box-shadow: 0 0 0 3px rgba(89, 109, 72, 0.2);
+}
+
+.form-group input:focus:invalid {
+    border-color: #e05252;
+    box-shadow: 0 0 0 3px rgba(224, 82, 82, 0.15);
+}
+
+/* ── Submit / actions ─────────────────────────────────── */
+.form-actions {
+    padding: 0 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.form-actions input[type="submit"] {
+    padding: 0.75rem 2.5rem;
+    background-color: #596d48;
     color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s, box-shadow 0.2s;
+    box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.25);
+}
+
+.form-actions input[type="submit"]:hover {
+    background-color: #4a5c3b;
+    box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.35);
+}
+
+.form-actions p {
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.form-actions a {
+    color: #596d48;
+    font-weight: 600;
+    text-decoration: none;
 }
