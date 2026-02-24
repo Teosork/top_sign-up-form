@@ -79,6 +79,9 @@ html, body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    min-width: 0;
+    overflow-y: auto;
+    padding: auto;
 }
 
 .intro-text {
@@ -162,4 +165,14 @@ legend {
 }
 .form-actions a:hover {
     text-decoration: underline;
+}
+.form-group input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+input[type="password"]:invalid {
+    border-color: #ef4444;
+}
+input[type="password"]:valid {
+    border-color: #25d220;
 }

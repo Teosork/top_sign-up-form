@@ -39,6 +39,7 @@
                             type="text" 
                             id="fname" 
                             name="user-fname"
+                            placeholder="John"
                             pattern="[A-Za-z]{3,}" 
                             title="First name must be at least 3 characters long and contain only letters" required>
                 </div>
@@ -48,6 +49,7 @@
                             type="text" 
                             id="lname" 
                             name="user-lname"
+                            placeholder="Doe"
                             pattern="[A-Za-z]{3,}" 
                             title="Last name must be at least 3 characters long and contain only letters" required>
                     </div>
@@ -60,6 +62,7 @@
                             type="email" 
                             id="email" 
                             name="user-email" 
+                            placeholder="john.doe@example.com"
                             pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
                             title="Must be a valid email address" required>
                     </div>
@@ -69,6 +72,7 @@
                             type="tel" 
                             id="tel" 
                             name="user-tel"
+                            placeholder="123-45-678"
                             pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
                             title="Phone number must be in the format XXX-XX-XXX" required>
                     </div>
@@ -81,6 +85,7 @@
                             type="password" 
                             id="pwd" 
                             name="user-pwd" 
+                            placeholder="At least 8 characters"
                             pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
                             title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters" required>
                     </div>
@@ -91,7 +96,8 @@
                         id="cpwd" 
                         name="user-cpwd" 
                         pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
-                        title="Must insert the exact same code as in the previous field" required>
+                        placeholder="Re-enter your password"
+                        title="Must insert the exact same password as in the previous field" required>
                     </div>
                 </div>
                 </fieldset>
